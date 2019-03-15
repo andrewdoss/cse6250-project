@@ -1,0 +1,6 @@
+- ICD9CM.csv is the ICD-9 ontology sourced from BioPortal
+- *_hadm_ids.csv are the MIMIC III dataset splits from James Mullenbach's github
+- restricted_mimic_iii is where the restricted mimic iii data should be placed:
+	- DIAGNOSES_ICD.csv
+	- NOTEEVENTS.csv
+	- PROCEDURES_ICD.csv
