@@ -63,19 +63,22 @@ class ICD9Tree(object):
         except KeyError:
             return None
 
-    def index_df(self, df, codes='fcode'):
+    def index_df(self, df, codes='fcode', code_format='string'):
         """Build an index from codes to dataframe rows.
 
         df : pandas DataFrame
             A pandas dataframe containing training data for model fitting.
-        codes : String
-            The name of the column containing ICD-9 code labels as a ";"
-            delimited String.
+        codes : String, optional
+            The name of the column containing ICD-9 code labels.
+        code_format : String, optional
+            Specifies if the codes are provided as a ";" delimited string or sets
+            of strings, default 'string'
         """
         # Fills missing with empty string and dedupes with sets
         codes_s = df[codes].copy()
-        codes_s.fillna('', inplace=True)
-        codes_s = codes_s.str.split(';').apply(set)
+        if format == 'string':
+            codes_s.fillna('', inplace=True)
+            codes_s = codes_s.str.split(';').apply(set)
 
         # Corresponding rows are stored at the node level
         for index, fcodes in codes_s.iteritems():
