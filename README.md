@@ -23,6 +23,8 @@ summaries and labels splits based on James Mullenbach's split files
 - svm-tests.ipynb provides a demo of the ICD9Tree class which can be used to
 store the ontology and fit and predict with a hierarchical SVM model. This class
 can be extended to perform evaluation or use other models.
+- svm-level-tests-MIMIC-III.ipynb compares the performance of flat and hierarchical SVMs at varying depths
+- svm-level-tests-MIMIC-III-top50.ipynb compares the performance of flat and hierarchical SVMs at varying depths 
 
 ### icd9.py
 
