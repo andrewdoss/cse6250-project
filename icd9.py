@@ -76,7 +76,7 @@ class ICD9Tree(object):
         """
         # Fills missing with empty string and dedupes with sets
         codes_s = df[codes].copy()
-        if format == 'string':
+        if code_format == 'string':
             codes_s.fillna('', inplace=True)
             codes_s = codes_s.str.split(';').apply(set)
 
@@ -85,7 +85,7 @@ class ICD9Tree(object):
             for code in fcodes:
                 self.get_node(code).rows.append(index)
 
-        # Set flag indicating completed index and return self for chaining
+        # Set flag indicating completed index
         self.has_index = True
         return None
 
