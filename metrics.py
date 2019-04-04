@@ -35,10 +35,10 @@ def basic_micro_metrics(true_labels, predictions, delimiter=';'):
     # Check if contents are Strings and split if needed
     if isinstance(true_labels[0], str):
         true_labels = true_labels.fillna('')
-        true_labels = true_labels.str.split(';')
+        true_labels = true_labels.str.split(delimiter)
     if isinstance(predictions[0], str):
-        true_labels = predictions.fillna('')
-        true_labels = predictions.str.split(';')
+        predictions = predictions.fillna('')
+        predictions = predictions.str.split(delimiter)
 
     true_labels = true_labels.apply(set)
     predictions = predictions.apply(set)
@@ -98,10 +98,10 @@ def basic_macro_metrics(true_labels, predictions, delimiter=';', per_label=False
     # Check if contents are Strings and split if needed
     if isinstance(true_labels[0], str):
         true_labels = true_labels.fillna('')
-        true_labels = true_labels.str.split(';')
+        true_labels = true_labels.str.split(delimiter)
     if isinstance(predictions[0], str):
-        true_labels = predictions.fillna('')
-        true_labels = predictions.str.split(';')
+        predictions = predictions.fillna('')
+        predictions = predictions.str.split(delimiter)
 
     true_labels = true_labels.apply(set)
     predictions = predictions.apply(set)
